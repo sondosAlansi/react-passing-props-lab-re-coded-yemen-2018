@@ -8,7 +8,7 @@ class FilteredFruitList extends Component {
       items: []
     };
   }
-
+  
   componentDidMount() {
     fetch('/api/fruit')
       .then(response => response.json())
@@ -16,8 +16,8 @@ class FilteredFruitList extends Component {
   }
 
   render() {
-    const list = !this.props.filter || this.props.filter === 'all' ? this.state.items : this.state.items.filter(i => i.fruit_type === this.props.filter);
-
+  
+const list = !props.filter || props.filter === 'all' ? props.fruit : props.fruit.filter(i => i.fruit_type === props.filter);
     return (
       <ul className="fruit-list">
         {list.map((item, index) => <li key={index}>{item.char}</li>)}
@@ -25,5 +25,9 @@ class FilteredFruitList extends Component {
     );
   }
 }
+FilteredFruitList.defaultProps = {
+  fruit: [],
+  filter: null
+};
 
 export default FilteredFruitList;

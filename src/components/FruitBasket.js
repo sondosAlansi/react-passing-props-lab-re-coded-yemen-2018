@@ -28,5 +28,10 @@ class FruitBasket extends Component {
     );
   }
 }
-
+FruitBasket.defaultProps = {
+  fruit: [],
+  filters: [],
+  currentFilter: null,
+  updateFilterCallback: () => {}
+};
 export default FruitBasket;
